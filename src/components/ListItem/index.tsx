@@ -22,7 +22,7 @@ export const ListItem = ({ item, onCheck }: Props) => {
              checked={isChecked}
              onChange={e => handleItemChange(item.id, e.target.checked)}
       />
-      <label>{item.name} - {item.done.toString()}</label>
+      <label>{item.name}</label>
     </C.Container>
   );
 };
