@@ -21,6 +21,16 @@ const App = () => {
     setList(updatedList);
   };
 
+  const handleItemCheck = (itemId: number, checked: boolean) => {
+    const updatedList = [ ...list ];
+    updatedList.forEach((item) => {
+      if ( item.id === itemId ) {
+        item.done = checked;
+      }
+    });
+    setList(updatedList);
+  };
+
   return (
     <C.Container>
       <C.Area>
@@ -29,7 +39,7 @@ const App = () => {
         <AddItem onAdd={handleAddTask}></AddItem>
 
         {list.map((item, index) => (
-          <ListItem key={index} item={item}/>
+          <ListItem key={index} item={item} onCheck={handleItemCheck}/>
         ))}
       </C.Area>
     </C.Container>
