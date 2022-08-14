@@ -11,12 +11,22 @@ const App = () => {
     { id: 2, name: 'Comprar um bolo na padaria', done: true },
   ]);
 
+  const handleAddTask = (taskName: string) => {
+    const updatedList = [ ...list ];
+    updatedList.push({
+      id: updatedList.length + 1,
+      name: taskName,
+      done: false,
+    });
+    setList(updatedList);
+  };
+
   return (
     <C.Container>
       <C.Area>
         <C.Header>Lista de Tarefas</C.Header>
 
-        <AddItem></AddItem>
+        <AddItem onAdd={handleAddTask}></AddItem>
 
         {list.map((item, index) => (
           <ListItem key={index} item={item}/>
